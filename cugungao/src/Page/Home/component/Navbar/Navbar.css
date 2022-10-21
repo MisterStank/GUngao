@@ -1,0 +1,95 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav { 
+  font-size: 1rem;
+}
+.nav_item{
+  list-style: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 90px; /* formor 8vh */
+  background-color: #A96B1E;
+
+}
+.nav__brand {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: #ffffff;
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 4rem;
+}
+
+.nav_link{
+    font-weight:500;
+}
+#log-in-button{
+    position: relative;
+    right: 0px;
+    border-radius: 20px;
+    border: 1px solid #A96B1E;
+    background-color: #0A093D;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 12px 40px;
+    letter-spacing: 1px;
+}
+.nav__toggler {
+  display: none;
+}
+.nav__toggler div {
+  width: 2.5rem;
+  height: 0.2rem;
+  margin: 0.4rem;
+  background: rgb(204, 204, 204);
+  transition: 0.3s ease-in;
+}
+
+@media screen and (max-width: 768px) {
+  .nav__toggler {
+    display: block;
+    cursor: pointer;
+  }
+  .nav__menu {
+    position: fixed;
+    top: 7vh;
+    right: 0;
+    height: 93vh;
+    width: 50vw;
+    background-color: #A96B1E;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: 0.5s ease-in;
+  }
+}
+/* Active Class */
+.nav__active {
+  transform: translateX(0%);
+}
+
+/* Toggle Icon Animation */
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-4px, 5px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-4px, -5px);
+}
