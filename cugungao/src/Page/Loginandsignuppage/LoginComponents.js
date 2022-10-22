@@ -6,7 +6,7 @@ import styled from 'styled-components';
  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
  position: relative;
  overflow: hidden;
- width: 1500px;
+ width: auto;
  max-width: 100%;
  min-height: 800px;
  `;

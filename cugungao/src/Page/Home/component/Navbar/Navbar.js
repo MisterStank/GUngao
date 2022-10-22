@@ -1,6 +1,7 @@
 import './Navbar.css';
 import React, { useState } from "react";
 import Navitems from './Navitems';
+import Loginbutton from './Loginbutton';
 
 function Navbar() {
   const [active, setActive] = useState("nav__menu");
@@ -18,13 +19,13 @@ function Navbar() {
   return (
     <nav className="nav">
       <p href="#" className="nav__brand">
-        GUNGAO
+        GUngao
       </p>
       <ul className={active}>
         <Navitems item="Home" tolink="/"></Navitems>
         <Navitems item="How to use" tolink="/how-to-use"></Navitems>
         <Navitems item="About us" tolink="/about-us"></Navitems>
-        <button id="log-in-button">Log-in</button>
+        <Loginbutton tolink="/log-in"></Loginbutton>
       </ul>
       <div onClick={navToggle} className={icon}>
         <div className="line1"></div>

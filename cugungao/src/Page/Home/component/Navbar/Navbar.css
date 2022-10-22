@@ -21,7 +21,6 @@ nav {
 
 }
 .nav__brand {
-  text-transform: uppercase;
   font-size: 1.8rem;
   font-weight: bold;
   text-shadow: #ffffff;
@@ -48,6 +47,13 @@ nav {
     font-weight: bold;
     padding: 12px 40px;
     letter-spacing: 1px;
+}
+#log-in-link{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 .nav__toggler {
   display: none;
