@@ -1,6 +1,6 @@
 
 
- @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+ @import url("https://fonts.googleapis.com/css?family=Inter:300,400,700");
   .joinChatContainer {
     margin: 0%;
     padding: 0%;
@@ -40,8 +40,8 @@
   }
   
   .chat-window {
-    width: 300px;
-    height: 420px;
+    width: auto;
+    height: auto;
   }
   
   .chat-window p {
@@ -50,23 +50,23 @@
   .chat-window .chat-header {
     height: 45px;
     border-radius: 6px;
-    background: #263238;
+    background: #D4B588;
     position: relative;
     cursor: pointer;
   }
   .chat-window .chat-header p {
     display: block;
     padding: 0 1em 0 2em;
-    color: #fff;
+    color: #FFFFFF;
     font-weight: 700;
     line-height: 45px;
   }
   
   .chat-window .chat-body {
-    height: calc(450px - (45px + 70px));
+    height: calc(746px - 45px - 70px - 93px);
     border: 1px solid #263238;
     background: #fff;
-  
+    background-color: #EADABC;
     position: relative;
   }
   .chat-window .chat-body .message-container {
@@ -74,6 +74,7 @@
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
+    
   }
   
   .chat-window .chat-body .message-container::-webkit-scrollbar {
@@ -83,6 +84,8 @@
     height: auto;
     padding: 10px;
     display: flex;
+    border-width: 10px;
+    border-color: #000000;
   }
   
   .chat-window .chat-body .message .message-content {
@@ -90,7 +93,7 @@
     height: auto;
     min-height: 40px;
     max-width: 120px;
-    background-color: #D4B588;
+    background: transparent;
     border-radius: 5px;
     color: white;
     display: flex;
@@ -101,6 +104,7 @@
     padding-left: 5px;
     overflow-wrap: break-word;
     word-break: break-word;
+    
   }
   
   #you {
@@ -109,6 +113,8 @@
   
   #you .message-content {
     justify-content: flex-start;
+    color: #000000;
+    background-color: #FFFFFF;
   }
   
   #you .message-meta {
@@ -123,6 +129,7 @@
   #other .message-content {
     justify-content: flex-end;
     background-color: rebeccapurple;
+    
   }
   
   #other .message-meta {
@@ -156,7 +163,7 @@
     border-right: 1px dotted #607d8b;
   
     outline: none;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Inter", normal;
   }
   
   .chat-window .chat-footer button {
@@ -164,16 +171,19 @@
     display: grid;
     place-items: center;
     cursor: pointer;
-    flex: 15%;
+    flex: 1%;
     height: 100%;
-    background: transparent;
+    color: #A96E1a;
     outline: none;
-    font-size: 25px;
-    color: lightgray;
+    font-size: 50px;
+    font-weight: bold;
+    
   }
   
   .chat-window .chat-footer button:hover {
-    color: #43a047;
+    color: #FFFFFF;
+    font-weight: bolder;
+    background-color: #2e7d32;
   }
   .hide {
     opacity: 0 !important;
