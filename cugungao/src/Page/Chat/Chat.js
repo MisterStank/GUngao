@@ -31,6 +31,7 @@ function Chat({socket,username,room}){
             
         });
         
+        return ()=> socket.off("recieve_message");
     }, [socket]);
 
     return(
