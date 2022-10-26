@@ -1,15 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { Router } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import {Homepagebody, Homepagetext1,Homepagetext2,Homepageparagraph1,Homepageparagraph2} from './HomepageComponent';
 import { Topic,Contain,Text,Selectt, Select_Contain , BtnLink} from './PageselectComponent'
+import { db , getTopics} from "../../../../firebase";
+import { addDoc, collection, QuerySnapshot } from "firebase/firestore";
+
+/*
+const options = db.collection("Topics")
+.onSnapshot((querySnapshot) =>{
+    querySnapshot.forEach((doc) => {
+        options.push(doc.data());
+    });
+});
 
 const options = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
   ]
+*/
 function Homepage(){
+    const [roomid,setRoomid] = useState(0);
+    const [topic,setTopic] = useState("");
+    const [topicList,setTopicList] = useState([]);
+    const [options ,setOptions] = useState([{ value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }]);
+    /*
+    const setTopics = async ()=>{
+        const topicdata = await getTopics(db);
+        topicdata.forEach(element => {
+            console.log({value: element.data().name, label: element.data().name });
+            setOptions(...options,{value: element.data().name, label: element.data().name })
+        });
+    };
+    */
+    const newTopic = async(e) =>{
+        e.preventDefault();
+        try{
+            console.log("add");
+            console.log(topic);
+            addDoc(collection(db,"Topics"),{
+                name:topic,
+                room:roomid
+            })
+            // set room id +1
+            // to-do
+            //
+        }catch(err){
+            alert(err);
+        }
+        const topicdata = await getTopics(db);
+        topicdata.forEach(element => {
+            console.log({value: element.data().name, label: element.data().name });
+            setOptions(...options,{value: element.data().name, label: element.data().name });
+        });
+    };
     return(
         <div>
             <Homepagebody>
@@ -34,6 +81,14 @@ function Homepage(){
                             placeholder={'Select Topic'}
                             clearable={true}
                         />  
+                    </Contain>
+                    <Contain>
+                        <input type="text"  placeholder="Enter your own topic..."
+                        onChange={(event) =>{
+                            setTopic(event.target.value);
+                        }}
+                        />
+                        <button onClick={newTopic}>add topic</button>
                     </Contain>
                     <Contain>
                         <BtnLink to='/chat'>Find my Chat-mate!</BtnLink>
