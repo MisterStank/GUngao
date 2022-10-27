@@ -26,6 +26,8 @@ export const Homepageparagraph1 = styled.p`
     font-weight: bold;
     font-size: 45px;
     text-align: right;
+    font-family: 'Mali', cursive;
+
 `
 
 export const Homepageparagraph2 = styled.p`
@@ -34,4 +36,7 @@ export const Homepageparagraph2 = styled.p`
     letter-spacing: 0.5px;
     font-size: 53px;
     text-align: center;
+    font-family: 'Mali', cursive;
+
 `
+

@@ -32,6 +32,8 @@ export const Text = styled.p`
     font-weight: bold;
     font-size: 48px;
     margin-bottom: 0;
+    font-family: 'Mali', cursive;
+
 `
 export const BtnLink = styled(Link)`
     border-radius : 4px;
@@ -43,6 +45,7 @@ export const BtnLink = styled(Link)`
     text-decoration: none;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'Mali', cursive;
 
     &:hover{
         background: #fff;

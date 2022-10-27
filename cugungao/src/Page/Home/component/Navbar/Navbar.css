@@ -7,9 +7,13 @@
 
 nav { 
   font-size: 1rem;
+  font-family: 'Mali', cursive;
+
 }
 .nav_item{
   list-style: none;
+  font-family: 'Mali', cursive;
+
 }
 
 .nav {
@@ -18,12 +22,16 @@ nav {
   justify-content: space-around;
   height: 90px; /* formor 8vh */
   background-color: #A96B1E;
+  font-family: 'Mali', cursive;
+
 
 }
 .nav__brand {
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: bolder;
   text-shadow: #ffffff;
+  font-family: 'Mali', cursive;
+
 }
 
 .nav__menu {
@@ -31,10 +39,14 @@ nav {
   align-items: center;
   justify-content: space-around;
   gap: 4rem;
+  font-family: 'Mali', cursive;
+
 }
 
 .nav_link{
     font-weight:500;
+    font-family: 'Mali', cursive;
+
 }
 #log-in-button{
     position: relative;
@@ -47,6 +59,8 @@ nav {
     font-weight: bold;
     padding: 12px 40px;
     letter-spacing: 1px;
+    font-family: 'Mali', cursive;
+
 }
 #log-in-link{
   text-decoration: none;
@@ -54,6 +68,8 @@ nav {
   font-size: 0.875rem;
   font-weight: bold;
   letter-spacing: 1px;
+  font-family: 'Mali', cursive;
+
 }
 .nav__toggler {
   display: none;
@@ -81,6 +97,8 @@ nav {
     flex-direction: column;
     transform: translateX(100%);
     transition: 0.5s ease-in;
+    font-family: 'Mali', cursive;
+
   }
 }
 /* Active Class */
