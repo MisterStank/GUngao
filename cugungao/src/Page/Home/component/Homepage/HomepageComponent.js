@@ -9,8 +9,8 @@ export const Homepagetext1 = styled.div`
     position: absolute;
     width:400px;
     height: 144px;
-    left: 760px;
-    top: 255px;
+    left: 590px;
+    top: 200px;
 
 
 `
@@ -25,7 +25,8 @@ export const Homepageparagraph1 = styled.p`
     color: #0A093D;
     font-weight: bold;
     font-size: 45px;
-    text-align: right;
+    text-align: center;
+    line-height: 100px;
     font-family: 'Mali', cursive;
 
 `
