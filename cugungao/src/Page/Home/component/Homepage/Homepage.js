@@ -5,39 +5,35 @@ import {Homepagebody, Homepagetext1,Homepagetext2,Homepageparagraph1,Homepagepar
 import { Topic,Contain,Text,Selectt, Select_Contain , BtnLink} from './PageselectComponent'
 import { db , getTopics} from "../../../../firebase";
 import { addDoc, collection, getDocs, QuerySnapshot ,doc} from "firebase/firestore";
+import { async } from "@firebase/util";
 
-/*
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
-*/
+var selectRoom = 0;
+var usern = "";
 function Homepage(){
 
     const [selectTopic , setSelectTopic] = useState("");
-    const [selectRoom , setSelectRoom] = useState(0);
     const [roomid,setRoomid] = useState(0);
     const [topic,setTopic] = useState("");
     const [topicList,setTopicList] = useState([]);
     const [options ,setOptions] = useState([]);
-    //const [isadding,setIsadding] = useState(false);
     
     // set the optionslist
-    const findRoom = () => {
-        var a = document.getElementById('selecttopic').options[0].value;
-        console.log(a)
-        // try {
-        //     const topicsref = collection(db , "Topics");
-        //     const topicdata = await getDocs(topicsref);
-        //     topicdata.forEach(doc =>{
-        //         //console.log(doc.data());
-        //         if(doc.data().name == selectTopic) setSelectRoom(doc.data().room);
-        //     })
-        // }catch(err){
-        //     console.log(err);
-        // }
-        // console.log(selectRoom);
+    const findRoom = async () => {
+        try {
+            const topicsref = collection(db , "Topics");
+            const topicdata =  await getDocs(topicsref);
+            topicdata.forEach(doc =>{
+                //console.log(doc.data());
+                if(doc.data().name == selectTopic) {
+                    selectRoom = Number(doc.data().room);
+                    console.log()
+                    //setSelectRoom(doc.data().room)
+                };
+            })
+        }catch(err){
+            console.log(err);
+        }
+        console.log("room selected ",selectRoom);
     }
     const renderoptions = async() =>{
         try {
@@ -85,6 +81,10 @@ function Homepage(){
         //setIsadding(false);
     };
     
+    const handleChange = e =>{
+        setSelectTopic(e.value);
+    }
+    
     useEffect (() =>{
         
         renderoptions();
@@ -115,15 +115,18 @@ function Homepage(){
                             options={options}
                             placeholder={'Select Topic'}
                             clearable={true}
-                            id='selecttopic'
-                            // value = {options.filter(obj => obj.value === selectTopic)}
-                            // onChange = {(e) => setSelectTopic(e.value)}
+                            onChange = {(e) => setSelectTopic(e.value)}
                         />  
                     </Contain>
                     <Contain>
                         <input type="text"  placeholder="Enter your own topic..."
                         onChange={(event) =>{
                             setTopic(event.target.value);
+                        }}
+                        />
+                        <input type="text"  placeholder="Enter your name..."
+                        onChange={(event) =>{
+                            usern = event.target.value;
                         }}
                         />
                         <button onClick={newTopic}>add topic</button>
@@ -138,3 +141,4 @@ function Homepage(){
 }
 
 export default Homepage;
+export {selectRoom,usern};
