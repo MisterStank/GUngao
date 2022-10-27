@@ -4,7 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import {Homepagebody, Homepagetext1,Homepagetext2,Homepageparagraph1,Homepageparagraph2} from './HomepageComponent';
 import { Topic,Contain,Text,Selectt, Select_Contain , BtnLink} from './PageselectComponent'
 import { db , getTopics} from "../../../../firebase";
-import { addDoc, collection, QuerySnapshot } from "firebase/firestore";
+import { addDoc, collection, getDocs, QuerySnapshot } from "firebase/firestore";
 
 /*
 const options = db.collection("Topics")
@@ -26,7 +26,9 @@ function Homepage(){
     const [topicList,setTopicList] = useState([]);
     const [options ,setOptions] = useState([{ value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }]);
+    { value: 'vanilla', label: 'Vanilla' },
+    { value: 'guy' , label: 'guy2yo'}
+]);
     /*
     const setTopics = async ()=>{
         const topicdata = await getTopics(db);
@@ -45,17 +47,26 @@ function Homepage(){
                 name:topic,
                 room:roomid
             })
-            // set room id +1
-            // to-do
-            //
+            setRoomid(roomid+1);
         }catch(err){
             alert(err);
         }
+        //set the options
+        const topics = collection(db,"Topics");
+        getDocs(topic).then((snapshot) =>{
+            snapshot.docs.forEach(tp =>{
+                console.log(tp.data());
+                setOptions(...options,{value: tp.data().name, label: tp.data().name });
+            });
+        })
+        /*
         const topicdata = await getTopics(db);
-        topicdata.forEach(element => {
-            console.log({value: element.data().name, label: element.data().name });
-            setOptions(...options,{value: element.data().name, label: element.data().name });
+        topicdata.docs.forEach((element) => {
+            console.log(element.data());
+            //console.log({value: element.data().name, label: element.data().name });
+            //setOptions(...options,{value: element.data().name, label: element.data().name });
         });
+        */
     };
     return(
         <div>
