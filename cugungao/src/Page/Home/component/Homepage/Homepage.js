@@ -14,6 +14,9 @@ const options = [
   ]
 */
 function Homepage(){
+
+    const [selectTopic , setSelectTopic] = useState("");
+    const [selectRoom , setSelectRoom] = useState(0);
     const [roomid,setRoomid] = useState(0);
     const [topic,setTopic] = useState("");
     const [topicList,setTopicList] = useState([]);
@@ -21,7 +24,21 @@ function Homepage(){
     //const [isadding,setIsadding] = useState(false);
     
     // set the optionslist
-
+    const findRoom = () => {
+        var a = document.getElementById('selecttopic').options[0].value;
+        console.log(a)
+        // try {
+        //     const topicsref = collection(db , "Topics");
+        //     const topicdata = await getDocs(topicsref);
+        //     topicdata.forEach(doc =>{
+        //         //console.log(doc.data());
+        //         if(doc.data().name == selectTopic) setSelectRoom(doc.data().room);
+        //     })
+        // }catch(err){
+        //     console.log(err);
+        // }
+        // console.log(selectRoom);
+    }
     const renderoptions = async() =>{
         try {
             const topicsref = collection(db , "Topics");
@@ -67,14 +84,14 @@ function Homepage(){
         renderoptions();
         //setIsadding(false);
     };
-    /*
+    
     useEffect (() =>{
         
         renderoptions();
         
         return() => {};
     },[]);
-    */
+    
     return(
         <div>
             <Homepagebody>
@@ -98,6 +115,9 @@ function Homepage(){
                             options={options}
                             placeholder={'Select Topic'}
                             clearable={true}
+                            id='selecttopic'
+                            // value = {options.filter(obj => obj.value === selectTopic)}
+                            // onChange = {(e) => setSelectTopic(e.value)}
                         />  
                     </Contain>
                     <Contain>
@@ -109,7 +129,7 @@ function Homepage(){
                         <button onClick={newTopic}>add topic</button>
                     </Contain>
                     <Contain>
-                        <BtnLink to='/chat'>Find my Chat-mate!</BtnLink>
+                        <BtnLink to='/chat' onClick={findRoom}>Find my Chat-mate!</BtnLink>
                     </Contain>
                 </Select_Contain>
             </Topic>
