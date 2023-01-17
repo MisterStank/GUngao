@@ -18,7 +18,8 @@ function Homepage(){
     const [options ,setOptions] = useState([]);
     
     // set the optionslist
-    const findRoom = async () => {
+    const findRoom = async (e) => {
+        e.preventDefault();
         try {
             const topicsref = collection(db , "Topics");
             const topicdata =  await getDocs(topicsref);
@@ -26,7 +27,7 @@ function Homepage(){
                 //console.log(doc.data());
                 if(doc.data().name == selectTopic) {
                     selectRoom = Number(doc.data().room);
-                    console.log()
+                    console.log(selectRoom);
                     //setSelectRoom(doc.data().room)
                 };
             })

@@ -12,7 +12,6 @@ function Chatmain(){
     const joinRoom = () =>{
         console.log("join room",room);
         socket.emit("join_room", room);
-        
     }
     useEffect(()=>{
         socket.emit("join_room", selectRoom);
